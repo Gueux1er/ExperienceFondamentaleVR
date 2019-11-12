@@ -17,7 +17,7 @@ public class XPCE_FollowThePlayer_Rotate : MonoBehaviour
     void Start()
     {
         ballToGrow = this.transform.GetChild(0).transform.gameObject;
-        maxSpeedOfRotation = Random.Range(1f, maxSpeedOfRotation);
+        maxSpeedOfRotation = Random.Range(0.1f, maxSpeedOfRotation);
         this.transform.LookAt (headOfPlayer.transform);
         this.transform.Rotate(0, 0, Random.Range(0f, 360f));
         maxSpeedOfGrowth = Random.Range(1, maxSpeedOfGrowth);
