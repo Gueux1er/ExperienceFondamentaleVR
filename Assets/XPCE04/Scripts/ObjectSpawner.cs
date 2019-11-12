@@ -12,24 +12,21 @@ public class ObjectSpawner : MonoBehaviour
     void Start()
     {
         Instantiate(prefab, this.transform.position, Quaternion.identity);
+        StartCoroutine(ReadyingObject());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isObjectReady == true) {
-            Instantiate(prefab, this.transform.position, Quaternion.identity);
-            isObjectReady = false;
-            StartCoroutine(ReadyingObject(delay));
 
-        }
     }
 
-    IEnumerator ReadyingObject(float time)
+    IEnumerator ReadyingObject()
     {
-        yield return new WaitForSeconds(time * Time.deltaTime);
- 
-        // Code to execute after the delay
-        isObjectReady = true;
+        for (; ; )
+        {
+            yield return new WaitForSeconds(delay);
+            GameObject go = Instantiate(prefab, this.transform.position, Quaternion.identity).gameObject;
+        }
     }
 }
