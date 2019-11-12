@@ -80,14 +80,25 @@ public class SineWave : MonoBehaviour {
     {
         mat = new Material(SineWaveShader);
 
-        //default values
+        InitialeValue();
+    }
+
+    public void InitialeValue()
+    {
+        XAxis = false;
+        HorizontalOffset = 0f;
+        VerticalOffset = 0;
+        Amplitude = 0;
+        Frequency = 60f;
+    }
+
+    public void ActiveValue()
+    {
         XAxis = false;
         HorizontalOffset = 0f;
         VerticalOffset = 0;
         Amplitude = 0.1f;
-        Frequency = 60f;
-
-
+        Frequency = 75f;
     }
 
 

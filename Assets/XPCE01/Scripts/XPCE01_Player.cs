@@ -5,20 +5,19 @@ using UnityEngine;
 public class XPCE01_Player : MonoBehaviour
 {
     public bool isOnWater;
+    public SineWaveControler sineWaveControler;
 
-    private void OnTriggerEnter(Collider other)
+    private void Update()
     {
-        if (other.CompareTag("Water"))
+        if (XPCE01_WaterController.instance.waterObject.transform.position.y > transform.position.y)
         {
             isOnWater = true;
+            sineWaveControler.Activate();
         }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Water"))
+        else
         {
             isOnWater = false;
+            sineWaveControler.Desactivate();
         }
     }
 }

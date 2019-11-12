@@ -53,7 +53,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Shadermap:
-        m_Texture: {fileID: 2800000, guid: df8334959bbc0884ea6c07c537738afd, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0025b39d06fea9648bc54fa5bc0d0ade, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _texcoord:
@@ -98,9 +98,9 @@ Material:
     - _RefractionAmount: 0.0845
     - _RimDistance: 1.91
     - _RimDistortion: 0.1
-    - _RimSize: 0
+    - _RimSize: 0.1
     - _Rimfalloff: 2.7
-    - _Rimtiling: 0
+    - _Rimtiling: 10
     - _SECONDARY_WAVES: 1
     - _SurfaceHighlight: 0
     - _SurfaceHighlightsDistortion: 0.59

@@ -97,10 +97,10 @@ Material:
     - _ReflectionStrength: 0
     - _RefractionAmount: 0.0247
     - _RimDistance: 1.91
-    - _RimDistortion: 0.1
-    - _RimSize: 0
-    - _Rimfalloff: 2.7
-    - _Rimtiling: 0
+    - _RimDistortion: 0.265
+    - _RimSize: 0.2
+    - _Rimfalloff: 0.1
+    - _Rimtiling: 10
     - _SECONDARY_WAVES: 1
     - _SurfaceHighlight: 0
     - _SurfaceHighlightsDistortion: 0.59

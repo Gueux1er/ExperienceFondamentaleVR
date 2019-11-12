@@ -14,7 +14,7 @@ public class SineWaveControler : MonoBehaviour
     private void Start()
     {
         sineWave = GetComponent<SineWave>();
-        Activate();
+        //Activate();
     }
 
     public void Activate()
@@ -23,6 +23,17 @@ public class SineWaveControler : MonoBehaviour
         sineWave.Amplitude = amplitude;
         sineWave.Frequency = frequency;
     }
+
+    public void Desactivate()
+    {
+        active = false;
+        sineWave.Amplitude = 0;
+        sineWave.Frequency = 0;
+        sineWave.VerticalOffset = 0;
+
+        sineWave.InitialeValue();
+    }
+
 
     private void Update()
     {

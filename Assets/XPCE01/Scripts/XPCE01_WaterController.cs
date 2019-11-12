@@ -16,6 +16,11 @@ public class XPCE01_WaterController : MonoBehaviour
     public GameObject waterObject;
     public AnimationCurve waterMovementCurve;
 
+    private void Awake()
+    {
+        instance = this;
+    }
+
     private void Start()
     {
         waterObject.transform.position = Vector3.up * minHeight;
