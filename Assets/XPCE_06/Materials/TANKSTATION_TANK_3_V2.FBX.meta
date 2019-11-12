@@ -1,0 +1,154 @@
+fileFormatVersion: 2
+guid: 3dc326ddc995c3f4aad9850f485ac010
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: ANTITANK_V2_Accessoires
+    100002: ANTITANK_V2_Canon
+    100004: ANTITANK_V2_Chenilles
+    100006: ANTITANK_V2_Moteur
+    100008: ANTITANK_V2_Phares
+    100010: ANTITANK_V2_TraindeRoulement
+    100012: "ANTITANK_V2_Tuy\xE8res"
+    100014: Box046
+    100016: Object128
+    100018: Object129
+    100020: Object134
+    100022: Object148
+    100024: //RootNode
+    400000: ANTITANK_V2_Accessoires
+    400002: ANTITANK_V2_Canon
+    400004: ANTITANK_V2_Chenilles
+    400006: ANTITANK_V2_Moteur
+    400008: ANTITANK_V2_Phares
+    400010: ANTITANK_V2_TraindeRoulement
+    400012: "ANTITANK_V2_Tuy\xE8res"
+    400014: Box046
+    400016: Object128
+    400018: Object129
+    400020: Object134
+    400022: Object148
+    400024: //RootNode
+    2100000: Metal
+    2100002: 13 - Default
+    2100004: 11 - Default
+    2100006: 15 - Default
+    2100008: Metal lourd
+    2100010: Sombre
+    2100012: Vitre
+    2100014: 17 - Default
+    2100016: 16 - Default
+    2100018: 14 - Default
+    2300000: ANTITANK_V2_Accessoires
+    2300002: ANTITANK_V2_Canon
+    2300004: ANTITANK_V2_Chenilles
+    2300006: ANTITANK_V2_Moteur
+    2300008: ANTITANK_V2_Phares
+    2300010: ANTITANK_V2_TraindeRoulement
+    2300012: "ANTITANK_V2_Tuy\xE8res"
+    2300014: Object134
+    2300016: Object148
+    3300000: ANTITANK_V2_Accessoires
+    3300002: ANTITANK_V2_Canon
+    3300004: ANTITANK_V2_Chenilles
+    3300006: ANTITANK_V2_Moteur
+    3300008: ANTITANK_V2_Phares
+    3300010: ANTITANK_V2_TraindeRoulement
+    3300012: "ANTITANK_V2_Tuy\xE8res"
+    3300014: Object134
+    3300016: Object148
+    4300000: ANTITANK_V2_Moteur
+    4300002: ANTITANK_V2_Accessoires
+    4300004: ANTITANK_V2_Chenilles
+    4300006: ANTITANK_V2_TraindeRoulement
+    4300008: ANTITANK_V2_Canon
+    4300010: Object134
+    4300012: Object148
+    4300014: ANTITANK_V2_Phares
+    4300016: "ANTITANK_V2_Tuy\xE8res"
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
