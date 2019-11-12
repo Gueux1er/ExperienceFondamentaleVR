@@ -12,12 +12,26 @@ public class WallCrusher : MonoBehaviour
     public float steppCycle = 3.0f;
     public GameObject[] walls;
 
+    private float timer = 0.0f;
+    private bool moveStep = false;
+
     private void Update()
     {
-        foreach(GameObject go in walls)
+        timer += Time.deltaTime;
+        if (timer >= steppCycle)
         {
-            go.transform.Translate(go.transform.forward * moveSpeed * Time.deltaTime);
+            moveStep = !moveStep;
+            timer = 0.0f;
         }
+
+        if (!steppedMovement || moveStep)
+        {
+            foreach (GameObject go in walls)
+            {
+                go.transform.Translate(go.transform.forward * moveSpeed * Time.deltaTime);
+            }
+        }
+
     }
 
     private void OnCollisionEnter(Collision collision)
