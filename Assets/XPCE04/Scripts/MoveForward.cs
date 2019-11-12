@@ -16,6 +16,6 @@ public class MoveForward : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.AddForce(transform.forward * thrust);
+        rb.AddForce(transform.right * thrust);
     }
 }
