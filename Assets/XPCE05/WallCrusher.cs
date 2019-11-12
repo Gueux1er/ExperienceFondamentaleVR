@@ -37,8 +37,15 @@ public class WallCrusher : MonoBehaviour
         if (!steppedMovement || moveStep)
         {
             foreach (GameObject go in walls)
-            {
-                go.transform.Translate(go.transform.forward * moveSpeed * Time.deltaTime);
+            { 
+                if (go.name == "top")
+                {
+                    go.transform.Translate(Vector3.up * moveSpeed * Time.deltaTime);
+                }
+                else
+                {
+                    go.transform.Translate(go.transform.forward * moveSpeed * Time.deltaTime);
+                }
             }
         }
 
