@@ -9,16 +9,26 @@ public class WallCrusher : MonoBehaviour
 
     public float moveSpeed = 0.2f;
     public bool steppedMovement = false;
-    public float steppCycle = 3.0f;
+    public float stepCycle = 3.0f;
     public GameObject[] walls;
 
     private float timer = 0.0f;
     private bool moveStep = false;
 
+    private List<Vector3> positions = new List<Vector3>();
+
+    private void Start()
+    {
+        foreach(GameObject go in walls)
+        {
+            positions.Add(go.transform.position);
+        }
+    }
+
     private void Update()
     {
         timer += Time.deltaTime;
-        if (timer >= steppCycle)
+        if (timer >= stepCycle)
         {
             moveStep = !moveStep;
             timer = 0.0f;
@@ -32,6 +42,10 @@ public class WallCrusher : MonoBehaviour
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Initialize();
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -46,13 +60,15 @@ public class WallCrusher : MonoBehaviour
 
     private void StopExperience()
     {
-        cam.gameObject.SetActive(false);
+        Initialize(); 
     }
 
-    private void StartExperience()
+    private void Initialize()
     {
-        cam.gameObject.SetActive(true);
-
+        for (int i = 0; i < positions.Count; ++i)
+        {
+            walls[i].transform.position = positions[i];
+        }
     }
 
 }

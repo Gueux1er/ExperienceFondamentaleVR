@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 86195665}
   - component: {fileID: 86195661}
   m_Layer: 0
-  m_Name: Plane (5)
+  m_Name: top
   m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 292843921}
   - component: {fileID: 292843917}
   m_Layer: 0
-  m_Name: Plane (2)
+  m_Name: front
   m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 462646490}
   - component: {fileID: 462646486}
   m_Layer: 0
-  m_Name: Plane (3)
+  m_Name: left
   m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -500,7 +500,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 698871838}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.19, y: 3.814, z: -10.13}
+  m_LocalPosition: {x: -0.19, y: 4.09, z: -10.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -569,6 +569,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 1669458490}
   moveSpeed: 0.05
+  steppedMovement: 0
+  steppCycle: 3
   walls:
   - {fileID: 462646485}
   - {fileID: 2007708607}
@@ -684,7 +686,7 @@ GameObject:
   - component: {fileID: 1426626228}
   - component: {fileID: 1426626224}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: floor
   m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -798,7 +800,7 @@ GameObject:
   - component: {fileID: 1867868265}
   - component: {fileID: 1867868261}
   m_Layer: 0
-  m_Name: Plane (1)
+  m_Name: behind
   m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -956,7 +958,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1886759062}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.4244101, y: 3.814, z: -9.66}
+  m_LocalPosition: {x: -0.4244101, y: 4.09, z: -9.66}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -992,7 +994,7 @@ GameObject:
   - component: {fileID: 2007708612}
   - component: {fileID: 2007708608}
   m_Layer: 0
-  m_Name: Plane (4)
+  m_Name: right
   m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
