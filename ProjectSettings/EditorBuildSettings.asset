@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/XPCE03.unity
+    guid: d955f7926988eac488a85d183d4cb3d8
   m_configObjects: {}
