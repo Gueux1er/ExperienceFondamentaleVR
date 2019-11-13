@@ -30,7 +30,7 @@ public class XPCE01_WaterController : MonoBehaviour
     private void Update()
     {
         if (isYoyo)
-            t = Mathf.PingPong(Time.time / duration, maxHeight);
+            t = Mathf.PingPong(Time.time / duration, 1);
         else
             t += Time.deltaTime / duration;
 
