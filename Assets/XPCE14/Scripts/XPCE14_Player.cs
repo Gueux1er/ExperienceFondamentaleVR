@@ -59,19 +59,20 @@ public class XPCE14_Player : MonoBehaviour
         float startDistance = Vector3.Distance(startPos, targetPos);
 
         // Active next control slab
-        nextControlSlab.Desable();
+        currentControlSlab.Desable();
         
         // Camera effect
         cam.DOKill();
-        cam.DOFieldOfView(baseFOV + 20, startDistance / 4).SetEase(Ease.InOutSine).SetLoops(2, LoopType.Yoyo);
+        cam.DOFieldOfView(baseFOV + 20, startDistance / 5).SetEase(Ease.InOutSine).SetLoops(2, LoopType.Yoyo);
 
         // Deplacement player
         playArea.transform.DOKill();
-        playArea.transform.DOMove(new Vector3(targetPos.x, startPos.y, targetPos.z), startDistance / 2).SetEase(Ease.InOutSine)
+        playArea.transform.DOMove(new Vector3(targetPos.x, startPos.y, targetPos.z), startDistance / 2.5f).SetEase(Ease.Linear)
             .OnComplete(() =>
             {
                 isMove = false;
                 nextControlSlab.Active();
+                currentControlSlab = nextControlSlab;
             });
     }
 

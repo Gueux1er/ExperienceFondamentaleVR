@@ -26,7 +26,6 @@ public class XPCE14_Arrow : MonoBehaviour
         if (other.CompareTag("XPCE14_Hand"))
         {
             mesh.material = canGrabMaterial;
-            XPCE14_Player.instance.currentControlSlab = controlSlab;
             XPCE14_Player.instance.currentArrowID = ID;
         }
     }
@@ -36,7 +35,6 @@ public class XPCE14_Arrow : MonoBehaviour
         if (other.CompareTag("XPCE14_Hand"))
         {
             mesh.material = normalMaterial;
-            XPCE14_Player.instance.currentControlSlab = null;
             XPCE14_Player.instance.currentArrowID = -1;
         }
     }
