@@ -36,6 +36,11 @@ public class XPCE17_Player : MonoBehaviour
         inputGrab.AddOnStateUpListener(OnInputUp, handType);
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawLine(handTransform.position, handTransform.position + handTransform.forward);
+    }
+
     private void Update()
     {
         if (isHook)
@@ -43,6 +48,8 @@ public class XPCE17_Player : MonoBehaviour
 
         if (Physics.Raycast(handTransform.position, handTransform.forward, out targetHit, distanceToHook, 1 << 20))
         {
+            print("Hook Ready");
+
             targetTransform.gameObject.SetActive(true);
             targetTransform.position = targetHit.point;
 
@@ -72,7 +79,7 @@ public class XPCE17_Player : MonoBehaviour
 
         // Deplacement player
         playArea.transform.DOKill();
-        playArea.transform.DOMove(new Vector3(targetPos.x, startPos.y, targetPos.z), startDistance / 2.5f).SetEase(Ease.Linear)
+        playArea.transform.DOMove(new Vector3(targetPos.x, startPos.y, targetPos.z), startDistance / 5f).SetEase(Ease.Linear)
             .OnUpdate(() =>
             {
                 line.SetPosition(1, handTransform.position);
