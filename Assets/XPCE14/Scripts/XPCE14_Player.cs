@@ -73,7 +73,8 @@ public class XPCE14_Player : MonoBehaviour
                 isMove = false;
                 nextControlSlab.Active();
                 currentControlSlab = nextControlSlab;
-            });
+
+           });
     }
 
     private void OnInputDown(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
