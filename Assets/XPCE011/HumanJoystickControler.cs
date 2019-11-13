@@ -8,13 +8,6 @@ public class HumanJoystickControler : MonoBehaviour
     public float deadzoneRadius = 0.5f;
     public float moveSpeed;
 
-    private Rigidbody rb;
-
-    private void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
-
     private void Update()
     {
         if (headTransform.localPosition.magnitude > deadzoneRadius)
