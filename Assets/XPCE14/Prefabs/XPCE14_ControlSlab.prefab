@@ -268,19 +268,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5000003
   m_Center: {x: -0.00000047683716, y: 1.7763547e-15, z: 0.000000014901165}
---- !u!135 &6403443000606309989
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5758651729507116247}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000002
-  m_Center: {x: 1.776357e-15, y: 1.7763546e-15, z: 0.000000014901165}
 --- !u!135 &9072302973057874750
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -588,28 +575,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90.00001
       objectReference: {fileID: 0}
-    - target: {fileID: 477470, guid: 824102ef55ae4614eb2045b36eb78661, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 477470, guid: 824102ef55ae4614eb2045b36eb78661, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 477470, guid: 824102ef55ae4614eb2045b36eb78661, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 9205082397241060760, guid: 824102ef55ae4614eb2045b36eb78661,
         type: 3}
       propertyPath: controlSlab
       value: 
       objectReference: {fileID: 6853479683245487895}
-    - target: {fileID: 9205082397241060760, guid: 824102ef55ae4614eb2045b36eb78661,
-        type: 3}
-      propertyPath: ID
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 824102ef55ae4614eb2045b36eb78661, type: 3}
 --- !u!1 &5758651729507116247 stripped
