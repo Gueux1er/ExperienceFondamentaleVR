@@ -12,11 +12,14 @@ public class XPCE07_CreatePoints : MonoBehaviour
     [SerializeField] Transform m_lookTransform;
     [SerializeField] Transform m_playerTransform;
     [SerializeField] Transform m_target;
-    public float m_distance;
+
+    [SerializeField] float m_distanceFocus;
+    [SerializeField] float m_distanceFromLastPoint;
+
 
     private void Start()
     {
-        m_target.position = m_lookTransform.position + m_lookTransform.forward * m_distance;
+        m_target.position = m_lookTransform.position + m_lookTransform.forward * m_distanceFocus;
     }
 
     void Update()
@@ -29,18 +32,10 @@ public class XPCE07_CreatePoints : MonoBehaviour
 
     private void SetNewPoint(Transform lookTransform, Transform positionTr)
     {
-        Vector3 posPoint = lookTransform.forward * m_distance + positionTr.position;
-        m_pathCreator.bezierPath.AddSegmentToEnd(posPoint);
-      //  Debug.Log("created new point at " + posPoint);
-      //  m_pathCreator.bezierPath.CalculateBoundsWithTransform(m_pathCreator.transform);
-      //  m_pathCreator.TriggerPathUpdate();
-    }
-
-    void OnDrawGizmos()
-    {
-        Vector3 posPoint = m_lookTransform.forward * m_distance + m_lookTransform.position;
-        // Draw a yellow sphere at the transform's position
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawSphere(posPoint, 1);
+        Vector3 finalDotPosition = m_pathCreator.bezierPath.GetPoint(m_pathCreator.bezierPath.NumPoints - 1);
+        Vector3 focusRay = lookTransform.forward * m_distanceFocus + positionTr.position;
+        Vector3 pointToRayDirection = (focusRay - finalDotPosition).normalized;
+        Vector3 newDotPosition = finalDotPosition + pointToRayDirection * m_distanceFromLastPoint;
+        m_pathCreator.bezierPath.AddSegmentToEnd(newDotPosition);
     }
 }
