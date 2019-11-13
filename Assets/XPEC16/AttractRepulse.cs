@@ -38,6 +38,8 @@ public class AttractRepulse : MonoBehaviour
 
     private void ActiveAttract (SteamVR_Action_Single fromInput, SteamVR_Input_Sources fromSource, float newAxis, float newDelta)
     {
+        Debug.Log("input");
+
         Rigidbody[] rbs;
         for (int i = 0; i < repulsePoints.Length; ++i)
         {
@@ -84,7 +86,9 @@ public class AttractRepulse : MonoBehaviour
 
     private void AddExplosionForce(Rigidbody[] input, float value, float radius, Vector3 center)
     {
-        foreach(Rigidbody rb in input)
+        if (input.Length == 0.0f)
+            return;
+        foreach (Rigidbody rb in input)
         {
             rb.AddExplosionForce(value, center, radius);
         }
@@ -92,6 +96,8 @@ public class AttractRepulse : MonoBehaviour
 
     private void AddTranslation(Rigidbody[] input, float value, float radius, Vector3 center)
     {
+        if (input.Length == 0.0f)
+            return;
         foreach(Rigidbody rb in input)
         {
             Vector3 dir = rb.transform.position - center;
@@ -101,7 +107,10 @@ public class AttractRepulse : MonoBehaviour
 
     private bool GetRbsInArea(Vector3 position, float radius, out Rigidbody[] result)
     {
-        Collider[] cols = Physics.OverlapSphere(position, radius, LayerMask.NameToLayer("Movable"));
+        int layerId = LayerMask.NameToLayer("Movable");
+        int layerMask = 1 << layerId;
+        Collider[] cols = Physics.OverlapSphere(position, radius, layerMask);
+        Debug.Log(cols.Length);
         result = new Rigidbody[0];
         if (cols.Length == 0.0f)
             return false;
@@ -110,6 +119,7 @@ public class AttractRepulse : MonoBehaviour
         {
             result[i] = cols[i].attachedRigidbody;
         }
+        Debug.Log(result.Length);
         return true;
     }
 }
