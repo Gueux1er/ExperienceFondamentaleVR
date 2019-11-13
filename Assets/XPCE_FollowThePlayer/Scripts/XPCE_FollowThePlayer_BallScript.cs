@@ -7,6 +7,9 @@ public class XPCE_FollowThePlayer_BallScript : MonoBehaviour
 
     Color colorValue;
     Color BaseColor;
+    float smoothness = 0.02f;
+    bool isCollided = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,13 +28,15 @@ public class XPCE_FollowThePlayer_BallScript : MonoBehaviour
         if (other.name.Contains("Destruction"))
         {
             //print("Contact");
-            
+            isCollided = true;
+
             colorValue -= new Color(0.005f, 0.005f, 0.005f);
             this.GetComponent<Renderer>().material.color = colorValue;
             if (colorValue.r <= 0 && colorValue.g <= 0 && colorValue.b <= 0)
             {
                 Destroy(this.gameObject);
             }
+            //print("contact end");
         }
     }
 
@@ -39,7 +44,24 @@ public class XPCE_FollowThePlayer_BallScript : MonoBehaviour
     {
         if (other.name.Contains("Destruction"))
         {
-            colorValue = BaseColor;
+            isCollided = false;
+            StartCoroutine(ComeBackToNormalColor());
+        }
+    }
+
+    IEnumerator ComeBackToNormalColor()
+    {
+        float incrementation = 0;
+        for (; ; )
+        {
+            colorValue = Color.Lerp(colorValue, BaseColor, incrementation);
+            incrementation += smoothness;
+            this.GetComponent<Renderer>().material.color = colorValue;
+            if (isCollided == true)
+            {
+                yield break;
+            }
+            yield return null;
         }
     }
 }
