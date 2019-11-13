@@ -28,11 +28,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _GradientTex:
-        m_Texture: {fileID: 2800000, guid: 7e177bfc0bd15734bb6123a25bd6b7c6, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normals:
-        m_Texture: {fileID: 2800000, guid: 3a41e7c7976846a47a62be3520f418ed, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6a4951be050ccf74380a80c3b9814cbf, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Reflection:
@@ -82,7 +82,7 @@ Material:
     - _RT_REFRACTION: 0
     - _ReflectionFresnel: 2
     - _ReflectionRefraction: 0.006
-    - _ReflectionStrength: 0
+    - _ReflectionStrength: 1
     - _RefractionAmount: 0.057
     - _RimDistance: 0.899
     - _RimDistortion: 0.139
