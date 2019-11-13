@@ -43,8 +43,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   despawner: {fileID: 135403979131966663, guid: 921e84b7bbcfe184493ad368b2c49d23,
     type: 3}
-  donut: {fileID: 753042561437447832}
-  cube: {fileID: 4509235338743851473, guid: 8c466531f35a1f549bf50f2dd55bf328, type: 3}
 --- !u!114 &7260975713859622084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,6 +56,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thrust: 0.25
+--- !u!114 &114918707985075714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753042561437447832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d18cdd9516272364ea4112ab040aa9a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 10
 --- !u!1001 &923474600122419931
 PrefabInstance:
   m_ObjectHideFlags: 0

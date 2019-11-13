@@ -2,20 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveForward : MonoBehaviour
+public class DestroyAfterTime : MonoBehaviour
 {
-    public float thrust;
-    Rigidbody rb;
-
+	public float lifetime = 10;
     // Start is called before the first frame update
     void Start()
     {
-        rb = this.GetComponent<Rigidbody>();
+        Invoke("Kill", lifetime);
     }
 
     // Update is called once per frame
-    void Update()
+    void Kill()
     {
-        rb.AddForce(transform.forward * thrust);
+        Destroy(gameObject);
     }
 }
