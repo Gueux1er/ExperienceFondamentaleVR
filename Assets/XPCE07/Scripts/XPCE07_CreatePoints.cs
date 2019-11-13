@@ -26,16 +26,19 @@ public class XPCE07_CreatePoints : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A) || triggerAction.GetStateDown(SteamVR_Input_Sources.Any))
         {
-            SetNewPoint(m_lookTransform, m_playerTransform);
+            m_pathCreator.bezierPath.AddSegmentToEnd(GetInstanceDotPosition(m_lookTransform, m_playerTransform));
         }
+        m_target.position = GetInstanceDotPosition(m_lookTransform, m_playerTransform);
     }
 
-    private void SetNewPoint(Transform lookTransform, Transform positionTr)
+    private Vector3 GetInstanceDotPosition(Transform lookTransform, Transform positionTr)
     {
         Vector3 finalDotPosition = m_pathCreator.bezierPath.GetPoint(m_pathCreator.bezierPath.NumPoints - 1);
         Vector3 focusRay = lookTransform.forward * m_distanceFocus + positionTr.position;
         Vector3 pointToRayDirection = (focusRay - finalDotPosition).normalized;
         Vector3 newDotPosition = finalDotPosition + pointToRayDirection * m_distanceFromLastPoint;
-        m_pathCreator.bezierPath.AddSegmentToEnd(newDotPosition);
+        return newDotPosition;
+       
     }
+
 }
