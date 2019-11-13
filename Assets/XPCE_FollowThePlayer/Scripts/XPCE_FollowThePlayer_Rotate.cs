@@ -19,7 +19,7 @@ public class XPCE_FollowThePlayer_Rotate : MonoBehaviour
         ballToGrow = this.transform.GetChild(0).transform.gameObject;
         maxSpeedOfRotation = Random.Range(0.1f, maxSpeedOfRotation);
         this.transform.LookAt (headOfPlayer.transform);
-        this.transform.Rotate(0, 0, Random.Range(0f, 360f));
+        this.transform.Rotate(Random.Range(0f, 360f), Random.Range(0f, 360f), Random.Range(0f, 360f));
         maxSpeedOfGrowth = Random.Range(1, maxSpeedOfGrowth);
         maxSize = Random.Range(0.1f, maxSize);
     }
@@ -30,7 +30,12 @@ public class XPCE_FollowThePlayer_Rotate : MonoBehaviour
         this.transform.position = new Vector3 (headOfPlayer.transform.position.x, headOfPlayer.transform.position.y, headOfPlayer.transform.position.z);
 
         float sizeOfTheObject = Mathf.PingPong(Time.time / maxSpeedOfGrowth, maxSize) + 0.1f;
-        ballToGrow.transform.localScale = new Vector3(sizeOfTheObject, sizeOfTheObject, sizeOfTheObject);
+        if (this.transform.childCount != 0)
+        {
+            ballToGrow.transform.localScale = new Vector3(sizeOfTheObject, sizeOfTheObject, sizeOfTheObject);
+        }
         this.transform.Rotate(0, maxSpeedOfRotation, 0);
     }
+
+    
 }
