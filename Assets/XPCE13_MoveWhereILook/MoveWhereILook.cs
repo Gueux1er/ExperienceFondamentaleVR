@@ -39,11 +39,13 @@ public class MoveWhereILook : MonoBehaviour
 
     private void OnInputDown(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
     {
+        Debug.Log("Down");
         move = true;
     }
 
     private void OnInputUp(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
     {
+        Debug.Log("Up");
         move = false;
     }
 }
