@@ -15,12 +15,11 @@ public class XPCE07_CreatePoints : MonoBehaviour
 
     [SerializeField] float m_distanceFocus;
     [SerializeField] float m_distanceFromLastPoint;
-
+    [SerializeField] Transform m_parentHand;
     
     private void Start()
     {
         m_target.position = m_handTransform.position + m_handTransform.forward * m_distanceFocus;
-        print(m_target.localEulerAngles.z);
     }
 
     void Update()
@@ -28,7 +27,7 @@ public class XPCE07_CreatePoints : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A) || triggerAction.GetStateDown(SteamVR_Input_Sources.Any))
         {
             m_pathCreator.bezierPath.AddSegmentToEnd(GetInstanceDotPosition(m_handTransform, m_playerTransform));
-            SetLastPointRotation(m_handTransform);
+          //  SetLastPointRotation(m_handTransform);
         }
         m_target.position = GetInstanceDotPosition(m_handTransform, m_playerTransform);
     }
@@ -39,7 +38,9 @@ public class XPCE07_CreatePoints : MonoBehaviour
         Vector3 focusRay = handTransform.forward * m_distanceFocus + playerTransform.position;
         Vector3 pointToRayDirection = (focusRay - finalDotPosition).normalized;
         //Vector3 newDotPosition = finalDotPosition + pointToRayDirection * m_distanceFromLastPoint;
-        Vector3 newDotPosition = finalDotPosition + handTransform.forward * m_distanceFromLastPoint;
+        Vector3 localForward = m_parentHand.InverseTransformDirection(handTransform.forward);
+        Debug.Log("hand fwd: " + handTransform.forward + " / local fwd: " + localForward);
+        Vector3 newDotPosition = finalDotPosition + localForward * m_distanceFromLastPoint;
         return newDotPosition;
     }
 
