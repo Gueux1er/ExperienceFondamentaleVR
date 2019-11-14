@@ -11,8 +11,8 @@ public class XPCE14_Player : MonoBehaviour
     public SteamVR_PlayArea playArea;
     public Camera cam;
 
-    public SteamVR_Action_Boolean inputGrab;
-    public SteamVR_Input_Sources handType;
+    public SteamVR_Action_Boolean grabPinch;
+    public SteamVR_Input_Sources inputSource = SteamVR_Input_Sources.Any;
 
     public bool isMove;
 
@@ -32,8 +32,6 @@ public class XPCE14_Player : MonoBehaviour
 
     private void Start()
     {
-        inputGrab.AddOnStateDownListener(OnInputDown, handType);
-        inputGrab.AddOnStateUpListener(OnInputUp, handType);
 
         currentControlSlab.Active();
     }
