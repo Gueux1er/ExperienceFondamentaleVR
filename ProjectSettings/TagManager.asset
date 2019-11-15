@@ -4,7 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Wall
+  - FxTemporaire
+  - projectile
+  - Water
+  - XPCE14_Hand
   layers:
   - Default
   - TransparentFX
@@ -14,7 +17,7 @@ TagManager:
   - UI
   - 
   - 
-  - Movable
+  - 
   - 
   - 
   - 
