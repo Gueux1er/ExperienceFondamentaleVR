@@ -97,8 +97,8 @@ Material:
     - _DstBlend: 0
     - _EnableDepth: -1
     - _EnableMask: -1
-    - _EnableRipple: -1
-    - _EnableWave: -1
+    - _EnableRipple: 1
+    - _EnableWave: 1
     - _FarClip: 1000
     - _GlossMapScale: 1
     - _Glossiness: 0
@@ -130,6 +130,6 @@ Material:
     - _WorkType: 1
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 1}
+    - _Color: {r: 0.047169805, g: 0.043832317, b: 0.043832317, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _MaskTiling: {r: 1, g: 1, b: 1, a: 1}
