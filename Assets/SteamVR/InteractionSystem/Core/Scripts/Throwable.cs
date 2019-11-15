@@ -44,6 +44,7 @@ namespace Valve.VR.InteractionSystem
 
 		protected VelocityEstimator velocityEstimator;
         protected bool attached = false;
+        public bool Attached { get { return attached; } }
         protected float attachTime;
         protected Vector3 attachPosition;
         protected Quaternion attachRotation;

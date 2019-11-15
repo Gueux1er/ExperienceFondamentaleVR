@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR.InteractionSystem;
 
 namespace RythmePingPong
 {
@@ -12,10 +13,11 @@ namespace RythmePingPong
 
     public class AIPingPong : MonoBehaviour
     {
+        PingPongMain main;
+
         [SerializeField] GameObject fxExplosion;
         [SerializeField] PingPongTypes pingPongType;
         AudioSource myAudio;
-        PongSpawner pongSpawner;
         bool touchedRacket;
 
         Rigidbody rb;
@@ -25,7 +27,7 @@ namespace RythmePingPong
 
         void Awake()
         {
-            pongSpawner = FindObjectOfType<PongSpawner>();
+            main = FindObjectOfType<PingPongMain>();
             myAudio = GetComponent<AudioSource>();
 
             rb = GetComponent<Rigidbody>();
@@ -46,9 +48,9 @@ namespace RythmePingPong
 
         private void FixedUpdate()
         {
-            if (rb.position.y < -10)
+            if (rb.position.y < -1)
             {
-                if (!touchedRacket) pongSpawner.AddMiss();
+                if (!touchedRacket) main.AddMiss();
                 Destroy(gameObject);
             }
         }
@@ -67,26 +69,25 @@ namespace RythmePingPong
                 gameObject.layer = 9;
             }
 
-            if (collision.gameObject.GetComponent<AIPingPongRacket>() != null && collision.gameObject.GetComponent<Rigidbody>().isKinematic)
+            if (touchedRacket) return;
+            if (collision.gameObject.GetComponent<AIPingPongRacket>() != null && collision.gameObject.GetComponent<Throwable>().Attached)
             {
-                if (!touchedRacket)
+                switch (pingPongType)
                 {
-                    switch (pingPongType)
-                    {
-                        case PingPongTypes.PingPong:
-                            GetComponent<MeshRenderer>().material.color = Color.green;
-                            pongSpawner.AddScore();
-                            break;
-                        case PingPongTypes.Grenade:
-                            var fx = Instantiate(fxExplosion, transform.position, Quaternion.identity);
-                            Destroy(fx, 1.5f);
-                            pongSpawner.Hurt();
-                            Destroy(gameObject,0.1f);
-                            break;
-                    }
+                    case PingPongTypes.PingPong:
+                        GetComponentInChildren<MeshRenderer>().material.color = Color.green;
+                        main.AddScore();
+                        break;
+                    case PingPongTypes.Grenade:
+                        fxExplosion.transform.SetParent(null, true);
+                        fxExplosion.SetActive(true);
+                        Destroy(fxExplosion, 1.5f);
 
-                    touchedRacket = true;
+                        main.Hurt();
+                        Destroy(gameObject, 0.1f);
+                        break;
                 }
+                touchedRacket = true;
             }
         }
     }
