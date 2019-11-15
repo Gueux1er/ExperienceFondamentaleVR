@@ -8,6 +8,7 @@ TagManager:
   - projectile
   - Water
   - XPCE14_Hand
+  - Despawner
   layers:
   - Default
   - TransparentFX
@@ -17,8 +18,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - post-process
+  - Movable
   - 
   - 
   - 

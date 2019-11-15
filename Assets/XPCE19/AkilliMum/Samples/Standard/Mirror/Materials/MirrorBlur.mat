@@ -97,8 +97,8 @@ Material:
     - _DstBlend: 0
     - _EnableDepth: -1
     - _EnableMask: -1
-    - _EnableRipple: 1
-    - _EnableWave: 1
+    - _EnableRipple: -1
+    - _EnableWave: -1
     - _FarClip: 1000
     - _GlossMapScale: 1
     - _Glossiness: 0

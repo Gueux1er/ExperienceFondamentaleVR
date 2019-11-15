@@ -26,6 +26,8 @@ public class AttractRepulse : MonoBehaviour
 
     public SteamVR_Action_Single attractInput;
     public SteamVR_Action_Single repulseInput;
+    public SteamVR_Action_Boolean reverseAttractInput;
+    public SteamVR_Action_Boolean reverseRepulseInput;
     public SteamVR_Input_Sources attractHand;
     public SteamVR_Input_Sources repulseHand;
     public SteamVR_Input_Sources globalHand;
@@ -33,12 +35,24 @@ public class AttractRepulse : MonoBehaviour
     private void Start()
     {
         attractInput.AddOnAxisListener(ActiveAttract, attractHand);
-        repulseInput.AddOnAxisListener(ActiveRepulse, repulseHand); 
+        repulseInput.AddOnAxisListener(ActiveRepulse, repulseHand);
+        reverseAttractInput.AddOnStateDownListener(ReverseAttract, attractHand);
+        reverseRepulseInput.AddOnStateDownListener(ReverseRepulse, repulseHand); 
+    }
+
+    private void ReverseAttract(SteamVR_Action_Boolean fromInput, SteamVR_Input_Sources fromSource)
+    {
+        attractionForce = -attractionForce;
+    }
+
+    private void ReverseRepulse(SteamVR_Action_Boolean fromInput, SteamVR_Input_Sources fromSource)
+    {
+        repulsionForce = -repulsionForce;
     }
 
     private void ActiveAttract (SteamVR_Action_Single fromInput, SteamVR_Input_Sources fromSource, float newAxis, float newDelta)
     {
-        Debug.Log("input");
+        Debug.Log("Input Attract : " + newAxis);
 
         Rigidbody[] rbs;
         for (int i = 0; i < repulsePoints.Length; ++i)
@@ -53,7 +67,7 @@ public class AttractRepulse : MonoBehaviour
 
 
                     case ActionType.Force:
-                        AddExplosionForce(rbs, repulsionForce, repulsionRadius, repulsePoints[i].position); 
+                        AddExplosionForce(rbs, repulsionForce * newAxis, repulsionRadius, repulsePoints[i].position); 
                         break;
                 }
             }
@@ -63,6 +77,8 @@ public class AttractRepulse : MonoBehaviour
 
     private void ActiveRepulse (SteamVR_Action_Single fromInput, SteamVR_Input_Sources fromSource, float newAxis, float newDelta)
     {
+        Debug.Log("Input repulse : " + newAxis);
+
         Rigidbody[] rbs;
         for (int i = 0; i < attractPoints.Length; ++i)
         {
@@ -76,7 +92,7 @@ public class AttractRepulse : MonoBehaviour
 
 
                     case ActionType.Force:
-                        AddExplosionForce(rbs, attractionForce, attractRadius, attractPoints[i].position);
+                        AddExplosionForce(rbs, attractionForce * newAxis, attractRadius, attractPoints[i].position);
                         break;
                 }
             }
