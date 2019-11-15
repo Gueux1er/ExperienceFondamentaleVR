@@ -1138,7 +1138,7 @@ namespace Valve.VR.InteractionSystem
                     if (currentAttachedObjectInfo.Value.interactable.handFollowTransform)
                     {
                         Quaternion targetHandRotation;
-                        Vector3 targetHandPosition;
+                        Vector3 targetHandPosition;                        
 
                         if (pose == null)
                         {
@@ -1182,7 +1182,7 @@ namespace Valve.VR.InteractionSystem
 
         protected virtual void FixedUpdate()
         {
-            if (currentAttachedObject != null)
+             if (currentAttachedObject != null)
             {
                 AttachedObject attachedInfo = currentAttachedObjectInfo.Value;
                 if (attachedInfo.attachedObject != null)
@@ -1229,7 +1229,7 @@ namespace Valve.VR.InteractionSystem
                         }
                     }
                 }
-            }
+             }
         }
 
         protected const float MaxVelocityChange = 10f;
