@@ -48,7 +48,7 @@ namespace RythmePingPong
         public void AddScore()
         {
             if (GameOver) return;
-            score += 7;
+            score += 1;
             uiMain.SetScoreText(score);
 
             if(score != 0 && score % 7 == 0)            
