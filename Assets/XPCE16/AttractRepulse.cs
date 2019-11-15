@@ -36,8 +36,8 @@ public class AttractRepulse : MonoBehaviour
     {
         attractInput.AddOnAxisListener(ActiveAttract, attractHand);
         repulseInput.AddOnAxisListener(ActiveRepulse, repulseHand);
-        reverseAttractInput.AddOnStateDownListener(ReverseAttract, attractHand);
-        reverseRepulseInput.AddOnStateDownListener(ReverseRepulse, repulseHand); 
+        reverseAttractInput.AddOnStateDownListener(ReverseAttract, repulseHand);
+        reverseRepulseInput.AddOnStateDownListener(ReverseRepulse, attractHand); 
     }
 
     private void ReverseAttract(SteamVR_Action_Boolean fromInput, SteamVR_Input_Sources fromSource)
