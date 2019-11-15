@@ -35,10 +35,10 @@ public class XPCE07_CreatePoints : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A) || triggerAction.GetStateDown(SteamVR_Input_Sources.Any))
         {
-            m_pathCreator.bezierPath.AddSegmentToEnd(GetInstanceDotPosition(m_handTransform, m_playerTransform,m_parentHand));
+            m_pathCreator.bezierPath.AddSegmentToEnd(GetInstanceDotPositionRay(m_handTransform, m_playerTransform));
           //  SetLastPointRotation(m_handTransform);
         }
-        m_target.position = GetInstanceDotPosition(m_handTransform, m_playerTransform, m_parentHand);
+        m_target.position = GetInstanceDotPositionRay(m_handTransform, m_playerTransform);
     }
 
     private Vector3 GetInstanceDotPosition(Transform handTransform, Transform playerTransform, Transform handParent)
