@@ -1211,72 +1211,6 @@ MonoBehaviour:
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
   m_ForceModuleActive: 0
---- !u!114 &7677841462161888732
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7716968855401258140}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a5fb0ca93b55ef4b8d54b512b103341, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  poseAction:
-    actionPath: /actions/default/in/Pose
-    needsReinit: 1
-  inputSource: 2
-  origin: {fileID: 0}
-  onTransformUpdated:
-    m_PersistentCalls:
-      m_Calls: []
-  onTransformChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  onConnectedChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  onTrackingChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  onDeviceIndexChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  broadcastDeviceChanges: 1
---- !u!114 &7677841462811773022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7716968855401241774}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a5fb0ca93b55ef4b8d54b512b103341, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  poseAction:
-    actionPath: /actions/default/in/Pose
-    needsReinit: 1
-  inputSource: 1
-  origin: {fileID: 0}
-  onTransformUpdated:
-    m_PersistentCalls:
-      m_Calls: []
-  onTransformChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  onConnectedChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  onTrackingChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  onDeviceIndexChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  broadcastDeviceChanges: 1
 --- !u!114 &7677841462989381874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2671,9 +2605,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7716968855401458356}
   - component: {fileID: 7716968855391508480}
-  - component: {fileID: 7677841462811773022}
-  - component: {fileID: 7677841462989381874}
   - component: {fileID: 7716968855401241775}
+  - component: {fileID: 7677841462989381874}
+  - component: {fileID: 7716968855401241776}
+  - component: {fileID: 7716968855401241777}
   m_Layer: 26
   m_Name: LeftHand
   m_TagString: Untagged
@@ -2690,13 +2625,68 @@ MonoBehaviour:
   m_GameObject: {fileID: 7716968855401241774}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96019a09b8baf484ca5ed2147fae7ad2, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e333fdf2e5490c4daefa1c558a36b31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  poseAction:
+    actionPath: /actions/default/in/Pose
+    needsReinit: 0
+  inputSource: 1
+  origin: {fileID: 0}
+  onTransformUpdated:
+    m_PersistentCalls:
+      m_Calls: []
+  onTransformChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  onConnectedChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  onTrackingChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  onDeviceIndexChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  broadcastDeviceChanges: 1
   showForward: 1
   forwardDistance: 0
   customOffset: {x: 0, y: 0, z: 0}
   offsetTweenDuration: 0.5
+--- !u!114 &7716968855401241776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7716968855401241774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee8fc8ea9c9e5b40bb8eb4dac8d0954, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  padInputDownAction:
+    actionPath: /actions/CustomFunc/in/PadInputDown
+    needsReinit: 0
+  handType: 1
+--- !u!114 &7716968855401241777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7716968855401241774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27991c206a5e66147bb8ee3ef31c8bac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionSet:
+    actionSetPath: /actions/CustomFunc
+  forSources: 0
+  disableAllOtherActionSets: 0
+  activateOnStart: 1
+  deactivateOnDestroy: 1
 --- !u!1 &7716968855401244320
 GameObject:
   m_ObjectHideFlags: 0
@@ -2744,9 +2734,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7716968855401449282}
   - component: {fileID: 7716968855391590558}
-  - component: {fileID: 7677841462161888732}
-  - component: {fileID: 7677841517951979732}
   - component: {fileID: 7716968855401258141}
+  - component: {fileID: 7677841517951979732}
+  - component: {fileID: 7716968855401258142}
   m_Layer: 26
   m_Name: RightHand
   m_TagString: Untagged
@@ -2763,13 +2753,50 @@ MonoBehaviour:
   m_GameObject: {fileID: 7716968855401258140}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96019a09b8baf484ca5ed2147fae7ad2, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e333fdf2e5490c4daefa1c558a36b31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  poseAction:
+    actionPath: /actions/default/in/Pose
+    needsReinit: 0
+  inputSource: 2
+  origin: {fileID: 0}
+  onTransformUpdated:
+    m_PersistentCalls:
+      m_Calls: []
+  onTransformChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  onConnectedChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  onTrackingChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  onDeviceIndexChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  broadcastDeviceChanges: 1
   showForward: 1
   forwardDistance: 0
   customOffset: {x: 0, y: 0, z: 0}
   offsetTweenDuration: 0.5
+--- !u!114 &7716968855401258142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7716968855401258140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee8fc8ea9c9e5b40bb8eb4dac8d0954, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  padInputDownAction:
+    actionPath: /actions/CustomFunc/in/PadInputDown
+    needsReinit: 0
+  handType: 2
 --- !u!1 &7716968855401268650
 GameObject:
   m_ObjectHideFlags: 0

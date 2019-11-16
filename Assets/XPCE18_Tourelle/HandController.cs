@@ -1,47 +1,42 @@
-﻿using UnityEngine;
-using UnityEditor;
-using Valve.VR.InteractionSystem;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using Valve.VR;
-using DG.Tweening;
-
-[RequireComponent(typeof(SteamVR_Behaviour_Pose))]
+using Valve.VR.InteractionSystem;
 
 public class HandController : MonoBehaviour
 {
-	[SerializeField] bool showForward = true;
-	[SerializeField] float forwardDistance;
-	[SerializeField] Vector3 customOffset;
+    [SerializeField] SteamVR_Action_Boolean padInputDownAction;
+    [SerializeField] SteamVR_Input_Sources handType;
+    CustomSteamVRBehaviourPose handPos;
 
-	[SerializeField] float offsetTweenDuration = 0.5f;
+    // Start is called before the first frame update
+    void Start()
+    {
+        handPos = GetComponent<CustomSteamVRBehaviourPose>();
 
-	private void Start()
-	{
-		GetComponent<SteamVR_Behaviour_Pose>().onTransformChangedEvent += AddHandOffset;
-	}
+        handPos.ChangeOffset(1.5f);
+        padInputDownAction.AddOnStateDownListener(padDown, handType);
+    }
 
-	private void AddHandOffset(SteamVR_Behaviour_Pose behavior, SteamVR_Input_Sources fromSource)
-	{
-		behavior.transform.position += showForward ? behavior.transform.forward * forwardDistance : customOffset;
-	}
+    private void padDown(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
+    {
+        handPos.ChangeOffset(handPos.ForwardDistance > 0 ? 0 : 1.5f);
+    }
 
-	public void SetShowForward(bool b)
-	{
-		showForward = b;
-	}
+    // Update is called once per frame
+    //void Update()
+    //{
+    //    Debug.Log(padInputDownAction.GetStateDown(rightHand.handType));
+    //    if (padInputDownAction != null && padInputDownAction.GetStateDown(leftHand.handType))
+    //    {
+    //        leftHandPos.ChangeOffset(leftHandPos.ForwardDistance > 0 ? 0 : 1.5f);
+    //    }
 
-	public void SetForwardDistance(float distance, bool smoothChange = true)
-	{
-		if (smoothChange)
-			DOTween.To(x => forwardDistance = x, 0, distance, offsetTweenDuration);
-		else
-			forwardDistance = distance;
-	}
-
-	public void ChangeOffset(Vector3 offset, bool smoothChange = true)
-	{
-		if (smoothChange)
-			DOTween.To(() => customOffset, x => customOffset = x, offset, offsetTweenDuration);
-		else
-			customOffset = offset;
-	}
+    //    if (padInputDownAction != null && padInputDownAction.GetStateDown(rightHand.handType))
+    //    {
+    //        rightHandPos.ChangeOffset(rightHandPos.ForwardDistance > 0 ? 0 : 1.5f);
+    //    }
+    //}
 }
