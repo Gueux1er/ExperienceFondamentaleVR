@@ -1,12 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using Valve.VR;
 using DG.Tweening;
+using UnityEngine;
+using UnityEngine.UI;
+using Valve.VR;
 
 public class XPCE14_Player : MonoBehaviour
 {
     public static XPCE14_Player instance;
+
+    [Header("Control Visual Effect & Mouvement")]
+    public bool fade;
+    public bool blur;
+    public bool reduceFOV;
+    public bool darkBorder;
+    public float speed = 2.5f;
+
+    [Space(20)]
 
     public SteamVR_PlayArea playArea;
     public Camera cam;
@@ -54,25 +64,33 @@ public class XPCE14_Player : MonoBehaviour
     private void MovingToNextControlSlab()
     {
         Vector3 startPos = playArea.transform.position;
-        Vector3 targetPos = currentControlSlab.controlers[currentArrowID].targetControlSlab.transform.position;
-        XPCE14_ControlSlab nextControlSlab = currentControlSlab.controlers[currentArrowID].targetControlSlab;
-        float startDistance = Vector3.Distance(startPos, targetPos);
+        Vector3 endPos = startPos + ((currentArrowID == 0) ? Vector3.forward : (currentArrowID == 1) ? Vector3.right : (currentArrowID == 2) ? Vector3.back : Vector3.left);
+        float startDistance = Vector3.Distance(startPos, endPos);
 
         // Active next control slab
         currentControlSlab.Desable();
-        
+
         // Camera effect
         cam.DOKill();
-        cam.DOFieldOfView(baseFOV + 20, startDistance / 5).SetEase(Ease.InOutSine).SetLoops(2, LoopType.Yoyo);
+        cam.DOFieldOfView(baseFOV + 20, startDistance / (speed * 2)).SetEase(Ease.InOutSine).SetLoops(2, LoopType.Yoyo);
+
+        if (fade)
+        {
+            SteamVR_Fade.View(new Color(0, 0, 0, 0.5f), startDistance / (speed * 2));
+            DOVirtual.DelayedCall(startDistance / 5, () =>
+            {
+                SteamVR_Fade.View(new Color(0, 0, 0, 0), startDistance / (speed * 2));
+            });
+        }
 
         // Deplacement player
         playArea.transform.DOKill();
-        playArea.transform.DOMove(new Vector3(targetPos.x, startPos.y, targetPos.z), startDistance / 2.5f).SetEase(Ease.Linear)
+        playArea.transform.DOMove(new Vector3(endPos.x, startPos.y, endPos.z), startDistance / speed).SetEase(Ease.Linear)
             .OnComplete(() =>
             {
                 isMove = false;
-                nextControlSlab.Active();
-                currentControlSlab = nextControlSlab;
+                currentControlSlab.transform.position = endPos;
+                currentControlSlab.Active();
             });
     }
 
@@ -80,7 +98,7 @@ public class XPCE14_Player : MonoBehaviour
     {
         isGrab = true;
     }
- 
+
     private void OnInputUp(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
     {
         isGrab = false;
