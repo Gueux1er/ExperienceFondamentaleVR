@@ -23,6 +23,7 @@ public class AIPlateau : MonoBehaviour
     public void OnPicking()
     {
         transform.localEulerAngles = Vector3.zero;
+        GetComponent<Rigidbody>().isKinematic = false;
     }
 
     public void OnDetached()
@@ -64,7 +65,7 @@ public class AIPlateau : MonoBehaviour
             Debug.Log("Touch object");
             //var targetPos = collision.transform.position;
 
-            collision.gameObject.GetComponentInParent<PickedObject>().AttachToPlateau(colSize.y, this);
+            //collision.gameObject.GetComponentInParent<PickedObject>().AttachToPlateau(colSize.y, this);
 
             //var isOnTop = transform.position.y + colSize.y < (targetPos.y + targetSize.y + touchTolerance);
             //if (isOnTop)
